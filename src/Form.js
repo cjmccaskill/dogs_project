@@ -1,6 +1,8 @@
 import React from "react";
 
 const Form = (props) => {
+  const { dog } = props;
+
   //STATE FOR THE FORM
   const [formData, setFormData] = React.useState(props.dog);
 
@@ -36,6 +38,14 @@ const Form = (props) => {
         onChange={handleChange}
       />
       <input type="submit" value={props.label} />
+      <button
+        onClick={() => {
+          props.deleteDog(dog);
+          props.history.push("/edit");
+        }}
+      >
+        Delete
+      </button>
     </form>
   );
 };
